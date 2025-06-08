@@ -64,6 +64,7 @@ Press `Ctrl+C` to stop the script and see final statistics.
 - `VALID: username` - Username is available (saved to valid.txt)
 - `INVALID: username` - Username is taken
 - `FAILED: username` - API request failed after retries
+- `CENSURED: username` - The username generated violates Roblox policies
 - Statistics shown every 50 checks
 
 ## Notes
