@@ -1,78 +1,111 @@
-# Roblox Username Sniper 🎯
+# Roblox Username Sniper🎯
 
-A Python script to check the availability of Roblox usernames.
-
-![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+A powerful Python script to find available Roblox usernames with customizable settings and robust error handling.
 
 ## Features
 
-- Generates random usernames with configurable length (default: 5 characters)
-- Checks username availability against Roblox's API
-- Option to include/exclude numbers in usernames
-- Retry mechanism for failed API requests
-- Real-time statistics display
-- Saves valid usernames to `valid.txt`
-- Configurable delay between requests
+- **Customizable username generation**:
+  - Set username length (default: 4 characters)
+  - Toggle number inclusion (0-9)
+  - Toggle underscore (_) special character
+  - Adjust delay between checks
+
+- **Intelligent checking**:
+  - Follows Roblox username rules
+  - Avoids consecutive underscores
+  - Ensures proper starting/ending characters
+  - Prevents duplicate checks
+
+- **Robust error handling**:
+  - Automatic retry mechanism
+  - Rate limit detection
+  - Progressive delay for consecutive errors
+  - Server error recovery
+
+- **Statistics tracking**:
+  - Total checks performed
+  - Valid names found
+  - Unknown errors encountered
+  - Checks per second
+
+- **Output**:
+  - Colored console output
+  - Saves valid usernames to text file
+  - Real-time statistics display
 
 ## Requirements
 
-- Python 3.7+
-- `requests` library
-- `colorama` library
+- Python 3.6+
+- Required packages:
+  - `requests`
+  - `colorama`
 
-## Installation
-
-1. Clone this repository or download the script
-2. Install the required dependencies:
-   ```bash
-   pip install requests colorama
-   ```
-
-## Configuration
-
-Edit the `CONFIG` dictionary at the top of the script to customize:
-
-```python
-CONFIG = {
-    "USERNAME_LENGTH": 4,          # Length of usernames to generate
-    "DELAY": 0.0,                  # Delay between checks (in seconds)
-    "MAX_API_RETRIES": 5,          # Maximum retry attempts for failed API calls
-    "RETRY_DELAY": 2,              # Delay between retry attempts (in seconds)
-    "API_TIMEOUT": 10,             # API request timeout (in seconds)
-    "INCLUDE_NUMBERS": True        # Whether to include numbers in usernames
-}
+Install dependencies with:
+```bash
+pip install requests colorama
 ```
 
 ## Usage
 
-Run the script:
+1. Run the script:
 ```bash
 python roblox.py
 ```
 
-The script will:
-1. Generate random usernames
-2. Check their availability
-3. Display results in real-time (green for available, gray for taken)
-4. Save available usernames to `valid.txt`
+2. Configure settings when prompted:
+   - Username length
+   - Delay between checks
+   - Special character (_) usage
+   - Number inclusion
+   - Custom output filename
 
-Press `Ctrl+C` to stop the script and see final statistics.
+3. The script will:
+   - Generate valid usernames
+   - Check availability against Roblox
+   - Save available usernames to file
+   - Display real-time statistics
+
+4. Press `Ctrl+C` to stop execution and view summary.
+
+## Configuration
+
+All settings can be configured at runtime:
+- `username_length`: Length of usernames to generate
+- `delay`: Seconds between API requests
+- `use_special_chars`: Enable/disable underscore
+- `use_numbers`: Enable/disable numbers
+- `output_file`: File to save valid usernames
 
 ## Output
 
-- `VALID: username` - Username is available (saved to valid.txt)
-- `INVALID: username` - Username is taken
-- `FAILED: username` - API request failed after retries
-- `CENSURED: username` - The username generated violates Roblox policies
-- Statistics shown every 50 checks
+Valid usernames are saved to `valid_usernames.txt` by default (configurable).
 
-## Notes
+Sample output:
+```
+Available: xkay
+Unavailable: user1
+Censored: badword
+```
 
-- Use responsibly and respect Roblox's terms of service
-- Excessive requests may lead to IP rate limiting
-- The script includes delays and retries to be more reliable
+## Error Handling
+
+The script handles:
+- Rate limiting (automatic wait)
+- Server errors (retry mechanism)
+- Network issues (retry with delay)
+- Unknown responses (tracking and reporting)
+
+## Performance
+
+The script maintains optimal performance while respecting Roblox's API limits:
+- Adjustable delay prevents rate limiting
+- Progressive backoff for errors
+- Recent username tracking prevents duplicates
 
 ## License
 
-MIT License - Feel free to modify and distribute.
+This project is open source. Feel free to modify and distribute.
+
+## Disclaimer
+
+This script is for educational purposes only. Use responsibly and respect Roblox's Terms of Service.
