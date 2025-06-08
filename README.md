@@ -1,81 +1,77 @@
-# Roblox Username Sniper
+# Roblox Username Sniper 🎯
 
-A Python script that generates random usernames and checks their availability on Roblox.
+A Python script to check the availability of Roblox usernames.
+
+![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 ## Features
 
-- Generates random usernames with configurable length
-- Checks username availability through Roblox's API
-- Categorizes results (available, taken, or censored)
-- Logs all activities to a file
-- Handles API errors with retry logic
-- Color-coded console output
-- Saves available usernames to `valid.txt`
+- Generates random usernames with configurable length (default: 5 characters)
+- Checks username availability against Roblox's API
+- Option to include/exclude numbers in usernames
+- Retry mechanism for failed API requests
+- Real-time statistics display
+- Saves valid usernames to `valid.txt`
+- Configurable delay between requests
 
 ## Requirements
 
-- Python 3.x
-- Required Python packages (install with `pip install -r requirements.txt`):
-  ```
-  requests
-  colorama
-  ```
+- Python 3.7+
+- `requests` library
+- `colorama` library
+
+## Installation
+
+1. Clone this repository or download the script
+2. Install the required dependencies:
+   ```bash
+   pip install requests colorama
+   ```
 
 ## Configuration
 
-Edit the `CONFIG` dictionary in the script to change settings:
+Edit the `CONFIG` dictionary at the top of the script to customize:
 
 ```python
 CONFIG = {
-    "USERNAME_LENGTH": 5,      # Length of generated usernames
-    "DELAY": 0.5,             # Delay between checks (in seconds)
-    "MAX_RETRIES": 3,         # Maximum retries on connection failure
-    "RETRY_DELAY": 5,         # Delay between retries (in seconds)
-    "API_TIMEOUT": 10         # API request timeout (in seconds)
+    "USERNAME_LENGTH": 4,          # Length of usernames to generate
+    "DELAY": 0.0,                  # Delay between checks (in seconds)
+    "MAX_API_RETRIES": 5,          # Maximum retry attempts for failed API calls
+    "RETRY_DELAY": 2,              # Delay between retry attempts (in seconds)
+    "API_TIMEOUT": 10,             # API request timeout (in seconds)
+    "INCLUDE_NUMBERS": True        # Whether to include numbers in usernames
 }
 ```
 
 ## Usage
 
-1. Run the script:
-   ```
-   python username_checker.py
-   ```
-
-2. The script will:
-   - Generate random usernames
-   - Check each one against Roblox's API
-   - Display color-coded results in the console
-   - Save available usernames to `valid.txt`
-
-3. To stop the script, press `Ctrl+C`
-
-## Output Files
-
-- `valid.txt`: Contains all available usernames found
-- `username_checker.log`: Contains detailed logs of all operations
-
-## Status Codes
-
-The script recognizes these Roblox API response codes:
-- `0`: Username is available (green)
-- `1`: Username is already taken (gray)
-- `2`: Username is censored/invalid (red)
-- Other codes: Unknown status (yellow)
-
-## Error Handling
-
-The script includes:
-- Automatic retries on connection failures
-- Error logging with tracebacks
-- Graceful handling of keyboard interrupts
-- Recovery from unexpected errors
-
-## Notes
-- ORIGINAL REPOSITORY BY: https://github.com/ocuz/Roblox-Name-Sniper
-- Roblox may rate limit or block excessive requests
-- The script includes delays to be more API-friendly
-- For legal use only - check Roblox's terms of service
+Run the script:
+```bash
+python roblox.py
 ```
 
-This README provides clear instructions on how to set up and use the script, explains its features, and includes important notes about usage. You can add this to your project repository or modify it as needed.
+The script will:
+1. Generate random usernames
+2. Check their availability
+3. Display results in real-time (green for available, gray for taken)
+4. Save available usernames to `valid.txt`
+
+Press `Ctrl+C` to stop the script and see final statistics.
+
+## Output
+
+- `VALID: username` - Username is available (saved to valid.txt)
+- `INVALID: username` - Username is taken
+- `FAILED: username` - API request failed after retries
+- Statistics shown every 50 checks
+
+## Notes
+
+- Use responsibly and respect Roblox's terms of service
+- Excessive requests may lead to IP rate limiting
+- The script includes delays and retries to be more reliable
+
+## License
+
+MIT License - Feel free to modify and distribute.
