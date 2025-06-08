@@ -165,7 +165,7 @@ class RobloxUsernameChecker:
         header = f"""
         {Fore.CYAN + Style.BRIGHT}╔════════════════════════════════════════╗
         {Fore.CYAN + Style.BRIGHT}║                                        ║
-        {Fore.CYAN + Style.BRIGHT}║    {Fore.WHITE + Style.BRIGHT}Roblox Username Checker Pro    {Fore.CYAN + Style.BRIGHT}║
+        {Fore.CYAN + Style.BRIGHT}║    {Fore.WHITE + Style.BRIGHT}Roblox Username Sniper    {Fore.CYAN + Style.BRIGHT}║
         {Fore.CYAN + Style.BRIGHT}║                                        ║
         {Fore.CYAN + Style.BRIGHT}╚════════════════════════════════════════╝
         """
