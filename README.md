@@ -1,4 +1,4 @@
-# Roblox Username Checker
+# Roblox Username Sniper
 
 A Python script that generates random usernames and checks their availability on Roblox.
 
