@@ -36,7 +36,10 @@ def check_username(username):
                     f.write(username + "\n")
                 return True
             else:
-                print(Fore.LIGHTBLACK_EX + f"INVALID: {username}")
+                if data.get("code") == 1 and "inappropriate" in data.get("message", "").lower():
+                    print(Fore.LIGHTBLACK_EX + f"CENSORED: {username}")
+                else:
+                    print(Fore.LIGHTBLACK_EX + f"INVALID: {username}")
                 return False
                 
         except requests.exceptions.RequestException as e:
@@ -67,7 +70,6 @@ def main():
             total_checked += 1
             elapsed = time.time() - start_time
             
-            # Mostrar estatísticas a cada 50 verificações
             if total_checked % 50 == 0:
                 rate = total_checked / elapsed if elapsed > 0 else 0
                 print(Fore.MAGENTA + 
