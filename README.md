@@ -72,7 +72,7 @@ The script includes:
 - Recovery from unexpected errors
 
 ## Notes
-
+- ORIGINAL REPOSITORY BY: https://github.com/ocuz/Roblox-Name-Sniper
 - Roblox may rate limit or block excessive requests
 - The script includes delays to be more API-friendly
 - For legal use only - check Roblox's terms of service
