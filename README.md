@@ -1,4 +1,5 @@
 # 🇧🇷
+# I will mix the 3 snipers soon
 # Roblox Username Sniper🎯
 
 A powerful Python script to find available Roblox usernames with customizable settings and robust error handling.
